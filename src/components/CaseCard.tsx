@@ -1,13 +1,9 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Case } from '../data/types';
 import AlgViewer from './AlgViewer';
-import { TwistyPlayer } from 'cubing/twisty';
 
 export default function CaseCard({ case: c }: { case: Case }) {
   return (

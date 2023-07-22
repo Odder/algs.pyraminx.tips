@@ -35,13 +35,16 @@ const defaultTheme = createTheme();
 
 export default function App() {
   const [cases, setCases] = useState([] as Case[]);
+  const [variants, setVariants] = useState(false);
+  const subsets = ['L3E', 'Last Layer', 'Flippy', 'Polish Flip', 'Separated Bar', 'Connected Bar', 'No Bar']
 
   React.useEffect(() => {
-    setCases(allCases);
+    setCases(allCases.filter((x: Case) => x.variant == 'solved'));
   }, []);
 
-  const handleFilter = (filter: (x: Case) => {}) => {
-    setCases(allCases.filter(x => filter(x)));
+  const toggleVariants = () => {
+    setCases(!variants ? allCases : allCases.filter((x: Case) => x.variant == 'solved'));
+    setVariants(!variants);
   }
 
   return (
@@ -76,27 +79,36 @@ export default function App() {
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
               This is a collection of random algs that I use for pyraminx.
             </Typography>
-            {/* <Stack
+            <Stack
               sx={{ pt: 4 }}
               direction="row"
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="outlined" onClick={() => handleFilter((a) => a.variant == 'solved')}>Cases</Button>
-              <Button variant="contained" onClick={() => handleFilter((a) => true)}>+ variants</Button>
-            </Stack> */}
+              <Button onClick={() => toggleVariants()} variant={variants ? 'contained' : 'outlined'}>Show variants</Button>
+            </Stack>
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cases.map((pyraCase, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
-                <CaseCard case={pyraCase}></CaseCard>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+        {subsets.map((subset, i) => (
+          <Container sx={{ py: 8 }} maxWidth="md" key={i}>
+            <Typography
+              component="h2"
+              variant="h3"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              {subset}
+            </Typography>
+            <Grid container spacing={4}>
+              {cases?.filter((x: Case) => x.subset == subset)?.map((pyraCase, j) => (
+                <Grid item xs={12} sm={6} md={4} key={pyraCase.name + pyraCase.variant}>
+                  <CaseCard case={pyraCase}></CaseCard>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        ))}
       </main>
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
