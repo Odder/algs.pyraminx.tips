@@ -26,20 +26,17 @@ export default function AlgViewer({ algs }: { algs: string[] }) {
   const handleClick = (el: any, alg: string) => {
     showAlg(alg);
     selectText(el)
-    console.log('clicked', el)
   }
 
   const selectText = (e: any) => {
     window?.getSelection()?.removeAllRanges();
     var range = document.createRange();
-    console.log('selecing', e)
     range.selectNode(e);
     window?.getSelection()?.addRange(range);
   }
 
 
   useEffect(() => {
-    console.log('useEffect')
     ref.current.innerHTML = '';
     ref.current.appendChild(player);
   }, []);

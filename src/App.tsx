@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CaseCard from './components/CaseCard';
 import { Case } from './data/types';
 import L4E from './data/l4e';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Copyright() {
   return (
@@ -31,7 +32,6 @@ function Copyright() {
 const allCases = L4E;
 
 // TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
 
 export default function App() {
   const [cases, setCases] = useState([] as Case[]);
@@ -42,13 +42,24 @@ export default function App() {
     setCases(allCases.filter((x: Case) => x.variant == 'solved'));
   }, []);
 
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      }),
+    [prefersDarkMode],
+  );
+
   const toggleVariants = () => {
     setCases(!variants ? allCases : allCases.filter((x: Case) => x.variant == 'solved'));
     setVariants(!variants);
   }
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
