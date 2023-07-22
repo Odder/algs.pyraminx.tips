@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/pyra-algs/static/css/main.1064bad1.css",
+    "main.js": "/pyra-algs/static/js/main.69e9928e.js",
+    "static/js/550.bcf9ea22.chunk.js": "/pyra-algs/static/js/550.bcf9ea22.chunk.js",
+    "static/js/399.b4205bf5.chunk.js": "/pyra-algs/static/js/399.b4205bf5.chunk.js",
+    "static/js/948.9d17f6c6.chunk.js": "/pyra-algs/static/js/948.9d17f6c6.chunk.js",
+    "static/js/800.46b55f98.chunk.js": "/pyra-algs/static/js/800.46b55f98.chunk.js",
+    "static/js/814.c1b05fcb.chunk.js": "/pyra-algs/static/js/814.c1b05fcb.chunk.js",
+    "static/js/851.2c7837cc.chunk.js": "/pyra-algs/static/js/851.2c7837cc.chunk.js",
+    "static/js/626.eb1f432b.chunk.js": "/pyra-algs/static/js/626.eb1f432b.chunk.js",
+    "index.html": "/pyra-algs/index.html",
+    "main.1064bad1.css.map": "/pyra-algs/static/css/main.1064bad1.css.map",
+    "main.69e9928e.js.map": "/pyra-algs/static/js/main.69e9928e.js.map",
+    "550.bcf9ea22.chunk.js.map": "/pyra-algs/static/js/550.bcf9ea22.chunk.js.map",
+    "399.b4205bf5.chunk.js.map": "/pyra-algs/static/js/399.b4205bf5.chunk.js.map",
+    "948.9d17f6c6.chunk.js.map": "/pyra-algs/static/js/948.9d17f6c6.chunk.js.map",
+    "800.46b55f98.chunk.js.map": "/pyra-algs/static/js/800.46b55f98.chunk.js.map",
+    "814.c1b05fcb.chunk.js.map": "/pyra-algs/static/js/814.c1b05fcb.chunk.js.map",
+    "851.2c7837cc.chunk.js.map": "/pyra-algs/static/js/851.2c7837cc.chunk.js.map",
+    "626.eb1f432b.chunk.js.map": "/pyra-algs/static/js/626.eb1f432b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1064bad1.css",
+    "static/js/main.69e9928e.js"
+  ]
+}
