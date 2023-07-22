@@ -2,7 +2,7 @@
   "name": "material-cra-ts",
   "version": "5.0.0",
   "private": true,
-  "homepage": "https://odder.github.io/pyra-algs",
+  "homepage": "https://algs.pyraminx.tips",
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
