@@ -1,0 +1,35 @@
+import { createContext, useState } from "react";
+import React from "react";
+
+const initialState = {
+  algs: {
+    shortnames: [] as string[],
+    setShortnames: (shortnames: string[]) => { },
+    moveCount: true,
+    setMovecount: (moveCount: boolean) => { },
+  },
+  filters: [] as string[],
+  setFilters: (filters: string[]) => { },
+};
+
+
+export const GlobalContext = createContext(initialState);
+
+export default ({ children }: { children: any }) => {
+  const [algShortnames, setAlgShortnames] = useState([] as string[]);
+  const [algMoveCount, setAlgMoveCount] = useState(true);
+  const [filters, setFilters] = useState([] as string[]);
+
+  const state = {
+    algs: {
+      shortnames: algShortnames,
+      setShortnames: setAlgShortnames,
+      moveCount: algMoveCount,
+      setMovecount: setAlgMoveCount,
+    },
+    filters: filters,
+    setFilters: setFilters,
+  };
+
+  return <GlobalContext.Provider value={state}>{children}</GlobalContext.Provider>;
+}

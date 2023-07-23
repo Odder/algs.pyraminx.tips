@@ -1,30 +1,26 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
+import { useState, useEffect, useContext } from 'react';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CaseCard from './components/CaseCard';
 import { Case } from './data/types';
 import L4E from './data/l4e';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import Navigation from './components/Navigation';
 import Drawer from '@mui/material/Drawer';
 import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import './App.css';
 import ListSubheader from '@mui/material/ListSubheader';
-import Switch from '@mui/material/Switch';
+import { GlobalContext } from './contexts/globalContext';
+import Filters from './components/filters';
+import { CssBaseline, Divider, createTheme, useMediaQuery } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
 
 function Copyright() {
   return (
@@ -41,14 +37,15 @@ export default function App() {
   const [cases, setCases] = useState([] as Case[]);
   const [pyraSet, setSet] = useState([] as Case[]);
   const [subsets, setSubsets] = useState([] as string[]);
-  const [checked, setChecked] = React.useState([] as string[]);
+  const { filters, setFilters } = useContext(GlobalContext);
+
   const sets = {
     'L4E': L4E,
     '1-flip': L4E,
   }
 
   const filterCases = () => {
-    const newCases = checked.includes('variants') ? pyraSet : pyraSet.filter((x: Case) => x.variant == 'solved')
+    const newCases = filters.includes('variants') ? pyraSet : pyraSet.filter((x: Case) => x.variant == 'solved')
     setCases(newCases);
   }
 
@@ -61,7 +58,7 @@ export default function App() {
 
   useEffect(() => {
     filterCases();
-  }, [checked, pyraSet, subsets]);
+  }, [filters, pyraSet, subsets]);
 
   useEffect(() => {
     setSet(sets['L4E']);
@@ -79,24 +76,9 @@ export default function App() {
     [prefersDarkMode],
   );
 
-  const handleToggle = (value: string) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
-
       <Box sx={{ display: 'flex' }}>
         <Navigation setSet={setSet}></Navigation>
 
@@ -110,32 +92,22 @@ export default function App() {
           }}
         >
           <Toolbar />
+
           <Box sx={{ overflow: 'auto' }}>
             <List>
               <ListSubheader>Subsets</ListSubheader>
-              {subsets.map((subset, index) => (
+              {subsets.map((subset: any, index: any) => (
                 <ListItem key={index} disablePadding>
                   <ListItemButton component="a" href={`#subset-${subset}`}>
                     <ListItemText primary={subset} />
                   </ListItemButton>
                 </ListItem>
               ))}
-              <ListSubheader>Filters</ListSubheader>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText id="switch-list-label-variants" primary="Show variants" />
-                  <Switch
-                    edge="end"
-                    onChange={handleToggle('variants')}
-                    checked={checked.indexOf('variants') !== -1}
-                    inputProps={{
-                      'aria-labelledby': 'switch-list-label-variants',
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
             </List>
+            <Divider />
+            <Filters></Filters>
           </Box>
+
         </Drawer>
 
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -183,7 +155,7 @@ export default function App() {
               </Typography>
               <Grid container spacing={4}>
                 {cases?.filter((x: Case) => x.subset == subset)?.map((pyraCase, j) => (
-                  <Grid item xs={12} sm={6} md={4} key={pyraCase.name + pyraCase.variant}>
+                  <Grid item xs={12} sm={6} md={4} key={pyraCase.name + pyraCase.variant + filters.join('.')}>
                     <CaseCard case={pyraCase}></CaseCard>
                   </Grid>
                 ))}
@@ -196,7 +168,6 @@ export default function App() {
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Copyright />
       </Box>
-      {/* End footer */}
-    </ThemeProvider >
+    </ThemeProvider>
   );
 }

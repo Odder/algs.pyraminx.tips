@@ -3,7 +3,7 @@ import './AlgViewer.css'
 import { TwistyPlayer } from 'cubing/twisty';
 import { useEffect, useRef } from 'react';
 import Typography from '@mui/material/Typography';
-import { Chip } from '@mui/material';
+import Alg from './Alg';
 
 export default function AlgViewer({ algs }: { algs: string[] }) {
   const ref = useRef<any>(null);
@@ -17,8 +17,12 @@ export default function AlgViewer({ algs }: { algs: string[] }) {
     cameraLatitudeLimit: 90,
     cameraLatitude: 80
   });
+  let attached = false
 
   const showAlg = (alg: string) => {
+    if (!attached) {
+      render();
+    }
     player.alg = alg;
     player.play();
   }
@@ -35,21 +39,26 @@ export default function AlgViewer({ algs }: { algs: string[] }) {
     window?.getSelection()?.addRange(range);
   }
 
-
-  useEffect(() => {
+  const render = () => {
     ref.current.innerHTML = '';
     ref.current.appendChild(player);
+    attached = true;
+  }
+
+
+  useEffect(() => {
+    render();
   }, []);
 
 
   return (
     <>
-      <div ref={ref} className='alg-viewer'>
+      <div ref={ref}>
       </div>
 
       {algs.map((alg, i) => (
         <Typography gutterBottom variant='h6' component='h4' key={i} onClick={(event) => handleClick(event.target, alg)} style={{ cursor: 'pointer' }}>
-          {alg}
+          <Alg alg={alg}></Alg>
         </Typography >
       ))
       }
