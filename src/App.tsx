@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,6 +15,7 @@ import CaseCard from './components/CaseCard';
 import { Case } from './data/types';
 import L4E from './data/l4e';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Navigation from './components/Navigation';
 
 function Copyright() {
   return (
@@ -29,17 +30,27 @@ function Copyright() {
   );
 }
 
-const allCases = L4E;
-
 // TODO remove, this demo shouldn't need to reset the theme.
 
 export default function App() {
   const [cases, setCases] = useState([] as Case[]);
   const [variants, setVariants] = useState(false);
-  const subsets = ['L3E', 'Last Layer', 'Flippy', 'Polish Flip', 'Separated Bar', 'Connected Bar', 'No Bar']
+  const [pyraSet, setSet] = useState([] as Case[]);
+  const [subsets, setSubsets] = useState(['L3E', 'Last Layer', 'Flippy', 'Polish Flip', 'Separated Bar', 'Connected Bar', 'No Bar']);
+  const sets = {
+    'L4E': L4E,
+    '1-flip': L4E,
+  }
 
-  React.useEffect(() => {
-    setCases(allCases.filter((x: Case) => x.variant == 'solved'));
+  useEffect(() => {
+    const newCases = variants ? pyraSet : pyraSet.filter((x: Case) => x.variant == 'solved')
+    setSubsets(Array.from(new Set(newCases.map((x: Case) => x.subset))))
+    setCases(newCases);
+  }, [pyraSet]);
+
+  useEffect(() => {
+    setSet(sets['L4E']);
+    setCases(sets['L4E'].filter((x: Case) => x.variant == 'solved'));
   }, []);
 
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -54,21 +65,15 @@ export default function App() {
   );
 
   const toggleVariants = () => {
-    setCases(!variants ? allCases : allCases.filter((x: Case) => x.variant == 'solved'));
+    setCases(!variants ? pyraSet : pyraSet.filter((x: Case) => x.variant == 'solved'));
     setVariants(!variants);
   }
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Pyraminx algs
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
+      <Navigation setSet={setSet}></Navigation>
+      <main style={{ marginTop: '50px' }}>
         {/* Hero unit */}
         <Box
           sx={{

@@ -4,17 +4,19 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Case } from '../data/types';
 import AlgViewer from './AlgViewer';
+import CardHeader from '@mui/material/CardHeader';
 
 export default function CaseCard({ case: c }: { case: Case }) {
   return (
     <Card
       sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
     >
+      <CardHeader
+        title={c.name}
+        subheader={c.variant}
+        align='center'
+      />
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom variant="h5" component="h2" align="center">
-          {c.name}
-        </Typography>
-        {c.variant && <Typography align="center">variant: {c.variant}</Typography>}
 
         <AlgViewer algs={c.algs}></AlgViewer>
       </CardContent>
