@@ -25,10 +25,12 @@ const sets: { [key: string]: Case[] } = {
 
 export default function Navigation({ setSet }: any) {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  console.log('navigation bar??')
 
   const handleCloseNavMenu = (page: string) => {
-    setSet(sets[page] as Case[]);
+    const pyraSet = sets[page] as Case[];
+    if (pyraSet) {
+      setSet(pyraSet);
+    };
     setAnchorElNav(null);
   };
 
@@ -37,7 +39,7 @@ export default function Navigation({ setSet }: any) {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar disableGutters>
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
           <IconButton
