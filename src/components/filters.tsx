@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { useContext, useEffect, useState } from 'react';
-import { Case } from '../data/types';
-import L4E from '../data/l4e';
-import L3E from '../data/l3e';
+import { useContext } from 'react';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -10,12 +7,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Switch from '@mui/material/Switch';
 import { GlobalContext } from '../contexts/globalContext';
 import List from '@mui/material/List';
-
-const pages: string[] = ['L4E', 'L3E'];
-const sets: { [key: string]: Case[] } = {
-  'L4E': L4E,
-  'L3E': L3E,
-}
 
 export default function Filters() {
   const { filters, setFilters } = useContext(GlobalContext);
@@ -49,6 +40,7 @@ export default function Filters() {
           />
         </ListItemButton>
       </ListItem>
+      <ListSubheader>Alg display</ListSubheader>
       <ListItem disablePadding>
         <ListItemButton>
           <ListItemText id="switch-list-label-variants" primary="Show move count" />
@@ -71,6 +63,19 @@ export default function Filters() {
             checked={filters.indexOf('hedge-sledge') !== -1}
             inputProps={{
               'aria-labelledby': 'switch-list-label-hedge-sledge',
+            }}
+          />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemText id="switch-list-label-variants" primary="Use triggers" />
+          <Switch
+            edge="end"
+            onChange={handleToggle('triggers')}
+            checked={filters.indexOf('triggers') !== -1}
+            inputProps={{
+              'aria-labelledby': 'switch-list-label-triggers',
             }}
           />
         </ListItemButton>

@@ -1,35 +1,25 @@
 import * as React from 'react'
 import './AlgViewer.css'
 import { TwistyPlayer } from 'cubing/twisty';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Alg from './Alg';
 
 export default function AlgViewer({ algs }: { algs: string[] }) {
   const ref = useRef<any>(null);
-  const player = new TwistyPlayer({
-    puzzle: "pyraminx",
-    alg: algs[0],
-    hintFacelets: "floating",
-    experimentalSetupAnchor: "end",
-    controlPanel: "none",
-    background: "none",
-    cameraLatitudeLimit: 90,
-    cameraLatitude: 80
-  });
-  let attached = false
+  const [player, setPlayer] = useState(null as any);
 
   const showAlg = (alg: string) => {
-    if (!attached) {
-      render();
-    }
     player.alg = alg;
     player.play();
   }
 
-  const handleClick = (el: any, alg: string) => {
+  const handleShowAlg = (el: any, alg: string) => {
     showAlg(alg);
-    selectText(el)
+    selectText(el);
+    setTimeout(() => {
+      player.timestamp = 0;
+    }, 15000);
   }
 
   const selectText = (e: any) => {
@@ -39,15 +29,23 @@ export default function AlgViewer({ algs }: { algs: string[] }) {
     window?.getSelection()?.addRange(range);
   }
 
-  const render = () => {
+  useEffect(() => {
+    if (!player) return;
     ref.current.innerHTML = '';
     ref.current.appendChild(player);
-    attached = true;
-  }
-
+  }, [player]);
 
   useEffect(() => {
-    render();
+    setPlayer(new TwistyPlayer({
+      puzzle: "pyraminx",
+      alg: algs[0],
+      hintFacelets: "floating",
+      experimentalSetupAnchor: "end",
+      controlPanel: "none",
+      background: "none",
+      cameraLatitudeLimit: 90,
+      cameraLatitude: 80
+    }));
   }, []);
 
 
@@ -57,7 +55,7 @@ export default function AlgViewer({ algs }: { algs: string[] }) {
       </div>
 
       {algs.map((alg, i) => (
-        <Typography gutterBottom variant='h6' component='h4' key={i} onClick={(event) => handleClick(event.target, alg)} style={{ cursor: 'pointer' }}>
+        <Typography gutterBottom variant='h6' component='h4' key={i} onClick={(event) => handleShowAlg(event.target, alg)} style={{ cursor: 'pointer' }}>
           <Alg alg={alg}></Alg>
         </Typography >
       ))

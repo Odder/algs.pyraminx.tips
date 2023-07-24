@@ -12,25 +12,16 @@ import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
-import L4E from '../data/l4e';
-import L3E from '../data/l3e';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 
 const pages: string[] = ['L4E', 'L3E'];
-const sets: { [key: string]: Case[] } = {
-  'L4E': L4E,
-  'L3E': L3E,
-}
 
-export default function Navigation({ setSet }: any) {
+export default function Navigation({ setPage }: any) {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const handleCloseNavMenu = (page: string) => {
-    const pyraSet = sets[page] as Case[];
-    if (pyraSet) {
-      setSet(pyraSet);
-    };
+    setPage(page);
     setAnchorElNav(null);
   };
 
@@ -71,7 +62,7 @@ export default function Navigation({ setSet }: any) {
             }}
           >
             {pages.map((page) => (
-              <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
+              <MenuItem key={page} onClick={() => handleCloseNavMenu(page)} selected={true}>
                 <Typography textAlign="center">{page}</Typography>
               </MenuItem>
             ))}
@@ -90,7 +81,7 @@ export default function Navigation({ setSet }: any) {
             ))}
           </Box></Container>
       </Toolbar>
-    </AppBar>
+    </AppBar >
 
   );
 }

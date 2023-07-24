@@ -7,17 +7,16 @@ type Algorithm = string;
 
 export default function Alg({ alg }: { alg: string }) {
   const { algs: { shortnames, setShortnames, moveCount, setMovecount }, filters } = useContext(GlobalContext);
+  const supportedShortnames = ['hedge-sledge', 'triggers'];
 
   useEffect(() => {
-    if (filters.includes('hedge-sledge')) {
-      setShortnames(['Hedge', 'Sledge']);
-    }
+    setShortnames(filters.filter((filter: string) => supportedShortnames.includes(filter)));
     setMovecount(filters.includes('movecount'));
   }, [filters])
 
   const replaces = {
-    'Sledge': (alg: Algorithm): Algorithm => alg.replace(/R' L R L'/g, 'S'),
-    'Hedge': (alg: Algorithm): Algorithm => alg.replace(/L R' L' R(?!['2])/g, 'H'),
+    'hedge-sledge': (alg: Algorithm): Algorithm => alg.replace(/R' L R L'/g, 'S').replace(/L R' L' R(?!['2])/g, 'H'),
+    'triggers': (alg: Algorithm): Algorithm => alg.replace(/R U R'/g, 'Rt').replace(/L' U L/g, 'Lt').replace(/R U' R'/g, 'Rt\'').replace(/L' U' L/g, 'Lt\''),
   } as { [key: string]: (alg: Algorithm) => Algorithm };
 
 

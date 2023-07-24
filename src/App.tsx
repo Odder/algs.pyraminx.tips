@@ -9,6 +9,7 @@ import Container from '@mui/material/Container';
 import CaseCard from './components/CaseCard';
 import { Case } from './data/types';
 import L4E from './data/l4e';
+import L3E from './data/l3e';
 import Navigation from './components/Navigation';
 import Drawer from '@mui/material/Drawer';
 import ListItem from '@mui/material/ListItem';
@@ -36,13 +37,14 @@ function Copyright() {
 export default function App() {
   const [cases, setCases] = useState([] as Case[]);
   const [pyraSet, setSet] = useState([] as Case[]);
+  const [page, setPage] = useState('L4E' as string);
   const [subsets, setSubsets] = useState([] as string[]);
   const { filters, setFilters } = useContext(GlobalContext);
 
   const sets = {
     'L4E': L4E,
-    '1-flip': L4E,
-  }
+    'L3E': L3E,
+  } as { [key: string]: Case[] };
 
   const filterCases = () => {
     const newCases = filters.includes('variants') ? pyraSet : pyraSet.filter((x: Case) => x.variant == 'solved')
@@ -57,12 +59,19 @@ export default function App() {
   }, [pyraSet]);
 
   useEffect(() => {
-    filterCases();
-  }, [filters, pyraSet, subsets]);
+    const pyraSet = sets[page] as Case[];
+    if (pyraSet) {
+      setSet(pyraSet);
+    }
+  }, [page]);
 
   useEffect(() => {
-    setSet(sets['L4E']);
-    setCases(sets['L4E'].filter((x: Case) => x.variant == 'solved'));
+    filterCases();
+  }, [filters, subsets]);
+
+  useEffect(() => {
+    setSet(sets[page]);
+    setCases(sets[page].filter((x: Case) => x.variant == 'solved'));
   }, []);
 
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -80,7 +89,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ display: 'flex' }}>
-        <Navigation setSet={setSet}></Navigation>
+        <Navigation setPage={setPage}></Navigation>
 
         <Drawer
           variant="permanent"
@@ -111,37 +120,6 @@ export default function App() {
         </Drawer>
 
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-
-          {/* Hero unit */}
-          <Box
-            sx={{
-              bgcolor: 'background.paper',
-              pt: 8,
-              pb: 6,
-            }}
-          >
-            <Container maxWidth="sm">
-              {/* <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Just random algs
-            </Typography> */}
-              <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                This is a collection of random algs that I use for pyraminx.
-              </Typography>
-              <Stack
-                sx={{ pt: 4 }}
-                direction="row"
-                spacing={2}
-                justifyContent="center"
-              >
-              </Stack>
-            </Container>
-          </Box>
           {subsets.map((subset, i) => (
             <Container id={`subset-${subset}`} sx={{ py: 8 }} maxWidth="md" key={i}>
               <Typography
@@ -155,7 +133,7 @@ export default function App() {
               </Typography>
               <Grid container spacing={4}>
                 {cases?.filter((x: Case) => x.subset == subset)?.map((pyraCase, j) => (
-                  <Grid item xs={12} sm={6} md={4} key={pyraCase.name + pyraCase.variant + filters.join('.')}>
+                  <Grid item xs={12} sm={6} md={4} key={pyraCase.name + pyraCase.variant}>
                     <CaseCard case={pyraCase}></CaseCard>
                   </Grid>
                 ))}
