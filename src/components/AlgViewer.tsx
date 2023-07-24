@@ -4,8 +4,9 @@ import { TwistyPlayer } from 'cubing/twisty';
 import { useEffect, useRef, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Alg from './Alg';
+import { Case } from '../data/types';
 
-export default function AlgViewer({ algs }: { algs: string[] }) {
+export default function AlgViewer({ case: pyraCase }: { case: Case }) {
   const ref = useRef<any>(null);
   const [player, setPlayer] = useState(null as any);
 
@@ -38,7 +39,8 @@ export default function AlgViewer({ algs }: { algs: string[] }) {
   useEffect(() => {
     setPlayer(new TwistyPlayer({
       puzzle: "pyraminx",
-      alg: algs[0],
+      experimentalStickeringMaskOrbits: pyraCase.mask ?? "CORNERS:----,CORNERS2:----,EDGES:------",
+      alg: pyraCase.algs[0],
       hintFacelets: "floating",
       experimentalSetupAnchor: "end",
       controlPanel: "none",
@@ -54,7 +56,7 @@ export default function AlgViewer({ algs }: { algs: string[] }) {
       <div ref={ref}>
       </div>
 
-      {algs.map((alg, i) => (
+      {pyraCase.algs.map((alg, i) => (
         <Typography gutterBottom variant='h6' component='h4' key={i} onClick={(event) => handleShowAlg(event.target, alg)} style={{ cursor: 'pointer' }}>
           <Alg alg={alg}></Alg>
         </Typography >

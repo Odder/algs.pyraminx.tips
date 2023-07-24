@@ -15,7 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 
-const pages: string[] = ['L4E', 'L3E'];
+const pages: string[] = ['L4E', 'L3E', 'Top First'];
 
 export default function Navigation({ setPage }: any) {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);

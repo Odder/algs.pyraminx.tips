@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import { Case } from '../data/types';
 import AlgViewer from './AlgViewer';
 import CardHeader from '@mui/material/CardHeader';
@@ -18,7 +17,7 @@ export default function CaseCard({ case: c }: { case: Case }) {
       />
       <CardContent sx={{ flexGrow: 1 }}>
 
-        <AlgViewer algs={c.algs}></AlgViewer>
+        <AlgViewer case={c}></AlgViewer>
       </CardContent>
     </Card>
   );
