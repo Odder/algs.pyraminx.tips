@@ -3,6 +3,7 @@ import { AlgSet } from "./types";
 const cases: AlgSet = {
   id: "l3e",
   name: "L3E",
+  description: "...",
   subsets: [
     {
       id: "good",

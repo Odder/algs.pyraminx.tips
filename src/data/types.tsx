@@ -9,6 +9,7 @@ export type Case = {
 export type AlgSet = {
   id: string;
   name: string;
+  description: string;
   subsets: Subset[];
 }
 

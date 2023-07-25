@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import React from "react";
+import { AlgSet } from "../data/types";
 
 const initialState = {
   algs: {
@@ -10,6 +11,10 @@ const initialState = {
   },
   filters: [] as string[],
   setFilters: (filters: string[]) => { },
+  page: '' as string,
+  setPage: (page: string) => { },
+  pyraSet: {} as AlgSet,
+  setSet: (set: AlgSet) => { },
 };
 
 
@@ -19,6 +24,8 @@ export default ({ children }: { children: any }) => {
   const [algShortnames, setAlgShortnames] = useState([] as string[]);
   const [algMoveCount, setAlgMoveCount] = useState(true);
   const [filters, setFilters] = useState([] as string[]);
+  const [page, setPage] = useState('L4E' as string);
+  const [pyraSet, setSet] = useState({} as AlgSet);
 
   const state = {
     algs: {
@@ -29,6 +36,10 @@ export default ({ children }: { children: any }) => {
     },
     filters: filters,
     setFilters: setFilters,
+    page: page,
+    setPage: setPage,
+    pyraSet: pyraSet,
+    setSet: setSet,
   };
 
   return <GlobalContext.Provider value={state}>{children}</GlobalContext.Provider>;

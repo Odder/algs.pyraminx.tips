@@ -12,11 +12,9 @@ export default function CaseCard({ case: c }: { case: Case }) {
     >
       <CardHeader
         title={c.name}
-        subheader={c.variant}
         align='center'
       />
       <CardContent sx={{ flexGrow: 1 }}>
-
         <AlgViewer case={c}></AlgViewer>
       </CardContent>
     </Card>

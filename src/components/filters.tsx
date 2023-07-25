@@ -26,7 +26,7 @@ export default function Filters() {
 
   return (
     <List>
-      <ListSubheader>Filters</ListSubheader>
+      {/* <ListSubheader>Filters</ListSubheader>
       <ListItem disablePadding>
         <ListItemButton>
           <ListItemText id="switch-list-label-variants" primary="Show variants" />
@@ -39,7 +39,7 @@ export default function Filters() {
             }}
           />
         </ListItemButton>
-      </ListItem>
+      </ListItem> */}
       <ListSubheader>Alg display</ListSubheader>
       <ListItem disablePadding>
         <ListItemButton>
