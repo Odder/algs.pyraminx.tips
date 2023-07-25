@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.1bcd082e.css","mappings":"AAAA,cACE,UACF,CCFA,KACE,sBACF","sources":["components/AlgViewer.css","App.css"],"sourcesContent":["twisty-player {\n  width: 100%;\n}","html {\n  scroll-behavior: smooth;\n}"],"names":[],"sourceRoot":""}
