@@ -90,15 +90,14 @@ export default function Navigation() {
         <Container maxWidth="md">
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-            <Link to={`/sets/${page.id}`}
-                key={page.id}>
-                <Button
-                  onClick={() => handleCloseNavMenu(page.id)}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {page.name}
-                </Button>
-              </Link>
+              <Button
+                href={`/sets/${page.id}`}
+                key={page.id}
+                onClick={() => handleCloseNavMenu(page.id)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page.name}
+              </Button>
             ))}
           </Box></Container>
       </Toolbar>
