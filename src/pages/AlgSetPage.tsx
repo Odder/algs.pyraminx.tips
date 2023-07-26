@@ -56,7 +56,7 @@ export default function AlgSetPage() {
               <ListSubheader>Subsets</ListSubheader>
               {sets[page].subsets?.map((subset: any, index: any) => (
                 <ListItem key={index} disablePadding>
-                  <ListItemButton component="a" href={`#subset-${subset.id}`}>
+                  <ListItemButton component="a" href={`/sets/${page}#subset-${subset.id}`}>
                     <ListItemText primary={subset.name} />
                   </ListItemButton>
                 </ListItem>

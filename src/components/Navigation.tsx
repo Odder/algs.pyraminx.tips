@@ -81,7 +81,8 @@ export default function Navigation() {
             }}
           >
             {pages.map((page) => (
-              <MenuItem key={page.id} onClick={() => handleCloseNavMenu(page.id)} selected={true}>
+              <MenuItem key={page.id} onClick={() => handleCloseNavMenu(page.id)} selected={true}
+                href={`/sets/${page.id}`}>
                 <Typography textAlign="center">{page.name}</Typography>
               </MenuItem>
             ))}

@@ -1,7 +1,6 @@
 export type Case = {
   name: string;
   variant?: string;
-  setup: string;
   mask?: string;
   algs: string[];
 }

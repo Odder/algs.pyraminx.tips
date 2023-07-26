@@ -12,7 +12,6 @@ const cases: AlgSet = {
         {
           name: "Sledge",
           variant: "solved",
-          setup: "",
           algs: [
             "R' L R L'",
           ],
@@ -20,7 +19,6 @@ const cases: AlgSet = {
         {
           name: "Sledge",
           variant: "U",
-          setup: "",
           algs: [
             "U' R' L R L' U",
           ],
@@ -28,7 +26,6 @@ const cases: AlgSet = {
         {
           name: "Sledge",
           variant: "U'",
-          setup: "",
           algs: [
             "U R' L R L' U'",
           ],
@@ -36,7 +33,6 @@ const cases: AlgSet = {
         {
           name: "Hedge",
           variant: "solved",
-          setup: "",
           algs: [
             "L R' L' R",
           ],
@@ -44,7 +40,6 @@ const cases: AlgSet = {
         {
           name: "Hedge",
           variant: "U",
-          setup: "",
           algs: [
             "U' L R' L' R U",
           ],
@@ -52,7 +47,6 @@ const cases: AlgSet = {
         {
           name: "Hedge",
           variant: "U'",
-          setup: "",
           algs: [
             "U L R' L' R U'",
           ],
@@ -60,7 +54,6 @@ const cases: AlgSet = {
         {
           name: "CW Cycle",
           variant: "solved",
-          setup: "",
           algs: [
             "L R' L' R2 U' R' U",
           ],
@@ -68,7 +61,6 @@ const cases: AlgSet = {
         {
           name: "CW Cycle",
           variant: "U",
-          setup: "",
           algs: [
             "U R U' R' L R' L' R",
             "U' L R' L' R2 U' R' U'",
@@ -77,7 +69,6 @@ const cases: AlgSet = {
         {
           name: "CW Cycle",
           variant: "U'",
-          setup: "",
           algs: [
             "R U' R' L R' L' R U",
             "U L R' L' R2 U' R'",
@@ -86,7 +77,6 @@ const cases: AlgSet = {
         {
           name: "CCW Cycle",
           variant: "solved",
-          setup: "",
           algs: [
             "R' L R L2' U L U'",
           ],
@@ -94,7 +84,6 @@ const cases: AlgSet = {
         {
           name: "CCW Cycle",
           variant: "U",
-          setup: "",
           algs: [
             "L' U L R' L R L' U'",
             "U' R' L R L2' U L",
@@ -103,7 +92,6 @@ const cases: AlgSet = {
         {
           name: "CCW Cycle",
           variant: "U'",
-          setup: "",
           algs: [
             "U' L' U L R' L R L'",
             "U R' L R L2' U L U",
@@ -112,7 +100,6 @@ const cases: AlgSet = {
         {
           name: "Sexy",
           variant: "solved",
-          setup: "",
           algs: [
             "U' R U R'",
           ],
@@ -120,7 +107,6 @@ const cases: AlgSet = {
         {
           name: "Sexy",
           variant: "U",
-          setup: "",
           algs: [
             "U R U R' U",
           ],
@@ -128,7 +114,6 @@ const cases: AlgSet = {
         {
           name: "Sexy",
           variant: "U'",
-          setup: "",
           algs: [
             "R U R' U'",
           ],
@@ -136,7 +121,6 @@ const cases: AlgSet = {
         {
           name: "Ugly",
           variant: "solved",
-          setup: "",
           algs: [
             "U L' U' L",
           ],
@@ -144,7 +128,6 @@ const cases: AlgSet = {
         {
           name: "Ugly",
           variant: "U",
-          setup: "",
           algs: [
             "L' U' L U",
           ],
@@ -152,7 +135,6 @@ const cases: AlgSet = {
         {
           name: "Ugly",
           variant: "U'",
-          setup: "",
           algs: [
             "U' L' U' L U'",
           ],
@@ -162,78 +144,71 @@ const cases: AlgSet = {
     {
       id: "last-layer",
       name: "Last Layer ",
-      cases: [{
-        name: "Lefty Bars",
-        variant: "solved",
-        setup: "",
-        algs: [
-          "R' U' L' U L R",
-        ],
-      },
-      {
-        name: "Lefty Bars",
-        variant: "U",
-        setup: "",
-        algs: [
-          "L R U R' U' L'",
-        ],
-      },
-      {
-        name: "Lefty Bars",
-        variant: "U'",
-        setup: "",
-        algs: [
-          "U R' U' L' U L R U'",
-          "U' L R U R' U' L' U",
-        ],
-      },
-      {
-        name: "Righty Bars",
-        variant: "solved",
-        setup: "",
-        algs: [
-          "L U R U' R' L'",
-        ],
-      },
-      {
-        name: "Righty Bars",
-        variant: "U",
-        setup: "",
-        algs: [
-          "U R' L' U' L U R U'",
-          "U' L U R U' R' L' U",
-        ],
-      },
-      {
-        name: "Righty Bars",
-        variant: "U'",
-        setup: "",
-        algs: [
-          "R' L' U' L U R",
-        ],
-      },
-      {
-        name: "Sune",
-        variant: "solved",
-        setup: "",
-        algs: [
-          "L' U L U L' U L",
-          "L U L' U L U L'",
-          "R' U R U R' U R",
-          "R U R' U R U R'",
-        ],
-      },
-      {
-        name: "Anti-Sune",
-        variant: "solved",
-        setup: "",
-        algs: [
-          "L' U' L U' L' U' L",
-          "L U' L' U' L U' L'",
-          "R' U' R U' R' U' R",
-          "R U' R' U' R U' R'",
-        ],
-      },],
+      cases: [
+        {
+          name: "Lefty Bars",
+          variant: "solved",
+          algs: [
+            "R' U' L' U L R",
+          ],
+        },
+        {
+          name: "Lefty Bars",
+          variant: "U",
+          algs: [
+            "L R U R' U' L'",
+          ],
+        },
+        {
+          name: "Lefty Bars",
+          variant: "U'",
+          algs: [
+            "U R' U' L' U L R U'",
+            "U' L R U R' U' L' U",
+          ],
+        },
+        {
+          name: "Righty Bars",
+          variant: "solved",
+          algs: [
+            "L U R U' R' L'",
+          ],
+        },
+        {
+          name: "Righty Bars",
+          variant: "U",
+          algs: [
+            "U R' L' U' L U R U'",
+            "U' L U R U' R' L' U",
+          ],
+        },
+        {
+          name: "Righty Bars",
+          variant: "U'",
+          algs: [
+            "R' L' U' L U R",
+          ],
+        },
+        {
+          name: "Sune",
+          variant: "solved",
+          algs: [
+            "L' U L U L' U L",
+            "L U L' U L U L'",
+            "R' U R U R' U R",
+            "R U R' U R U R'",
+          ],
+        },
+        {
+          name: "Anti-Sune",
+          variant: "solved",
+          algs: [
+            "L' U' L U' L' U' L",
+            "L U' L' U' L U' L'",
+            "R' U' R U' R' U' R",
+            "R U' R' U' R U' R'",
+          ],
+        },],
     },
     {
       id: "flippy",
@@ -241,7 +216,6 @@ const cases: AlgSet = {
       cases: [{
         name: "2 flip",
         variant: "solved",
-        setup: "",
         algs: [
           "L R' L' R U' R U R'",
         ],
@@ -249,7 +223,6 @@ const cases: AlgSet = {
       {
         name: "2 flip",
         variant: "U",
-        setup: "",
         algs: [
           "U' L R' L' R U' R U R' U",
         ],
@@ -257,7 +230,6 @@ const cases: AlgSet = {
       {
         name: "2 flip",
         variant: "U'",
-        setup: "",
         algs: [
           "U L R' L' R U' R U R' U'",
         ],
@@ -265,7 +237,6 @@ const cases: AlgSet = {
       {
         name: "D flip",
         variant: "solved",
-        setup: "",
         algs: [
           "R U R' U L' U' L U'",
         ],
@@ -273,7 +244,6 @@ const cases: AlgSet = {
       {
         name: "D flip",
         variant: "U",
-        setup: "",
         algs: [
           "U' R U R' U L' U' L",
         ],
@@ -281,7 +251,6 @@ const cases: AlgSet = {
       {
         name: "D flip",
         variant: "U'",
-        setup: "",
         algs: [
           "U R U R' U L' U' L U",
         ],
@@ -289,7 +258,6 @@ const cases: AlgSet = {
       {
         name: "4 flip",
         variant: "solved",
-        setup: "",
         algs: [
           "R U' R' L' U L R U' R' L' U L",
         ],
@@ -301,7 +269,6 @@ const cases: AlgSet = {
       cases: [{
         name: "Right Polish Flip",
         variant: "solved",
-        setup: "",
         algs: [
           "R U' R' L' U' L U'",
         ],
@@ -309,7 +276,6 @@ const cases: AlgSet = {
       {
         name: "Right Polish Flip",
         variant: "U",
-        setup: "",
         algs: [
           "U' R U' R' L' U' L",
         ],
@@ -317,7 +283,6 @@ const cases: AlgSet = {
       {
         name: "Right Polish Flip",
         variant: "U'",
-        setup: "",
         algs: [
           "U R U' R' L' U' L U",
         ],
@@ -325,7 +290,6 @@ const cases: AlgSet = {
       {
         name: "Left Polish Flip",
         variant: "solved",
-        setup: "",
         algs: [
           "L' U L R U R' U",
         ],
@@ -333,7 +297,6 @@ const cases: AlgSet = {
       {
         name: "Left Polish Flip",
         variant: "U",
-        setup: "",
         algs: [
           "U' L' U L R U R' U'",
         ],
@@ -341,7 +304,6 @@ const cases: AlgSet = {
       {
         name: "Left Polish Flip",
         variant: "U'",
-        setup: "",
         algs: [
           "U L' U L R U R'",
         ],
@@ -349,7 +311,6 @@ const cases: AlgSet = {
       {
         name: "SUS",
         variant: "solved",
-        setup: "",
         algs: [
           "R' L R L' U' R' L R L' U",
         ],
@@ -357,7 +318,6 @@ const cases: AlgSet = {
       {
         name: "HUH",
         variant: "solved",
-        setup: "",
         algs: [
           "L R' L' R U L R' L' R U'",
         ],
@@ -369,7 +329,6 @@ const cases: AlgSet = {
       cases: [{
         name: "Good Niky",
         variant: "solved",
-        setup: "",
         algs: [
           "R U' R' L' U L",
         ],
@@ -377,7 +336,6 @@ const cases: AlgSet = {
       {
         name: "Good Niky",
         variant: "U",
-        setup: "",
         algs: [
           "R U R' L' U' L",
           "U' R U' R' L' U L U",
@@ -386,7 +344,6 @@ const cases: AlgSet = {
       {
         name: "Good Niky",
         variant: "U'",
-        setup: "",
         algs: [
           "U' R U R' L' U' L U",
           "U R U' R' L' U L U'",
@@ -395,7 +352,6 @@ const cases: AlgSet = {
       {
         name: "Good Sochi",
         variant: "solved",
-        setup: "",
         algs: [
           "L' U L R U' R'",
         ],
@@ -403,7 +359,6 @@ const cases: AlgSet = {
       {
         name: "Good Sochi",
         variant: "U",
-        setup: "",
         algs: [
           "U L' U' L R U R' U'",
           "U' L' U L R U' R' U",
@@ -412,7 +367,6 @@ const cases: AlgSet = {
       {
         name: "Good Sochi",
         variant: "U'",
-        setup: "",
         algs: [
           "L' U' L R U R'",
           "U L' U L R U' R' U'",
@@ -421,7 +375,6 @@ const cases: AlgSet = {
       {
         name: "Bad Niky",
         variant: "solved",
-        setup: "",
         algs: [
           "R U' R' U' L' U L U",
           "U R U R' U' L' U' L",
@@ -430,7 +383,6 @@ const cases: AlgSet = {
       {
         name: "Bad Niky",
         variant: "U",
-        setup: "",
         algs: [
           "R U R' U' L' U' L U",
           "U' R U' R' U' L' U L U'",
@@ -439,7 +391,6 @@ const cases: AlgSet = {
       {
         name: "Bad Niky",
         variant: "U'",
-        setup: "",
         algs: [
           "U R U' R' U' L' U L",
           "U' R U R' U' L' U' L U'",
@@ -448,7 +399,6 @@ const cases: AlgSet = {
       {
         name: "Bad Sochi",
         variant: "solved",
-        setup: "",
         algs: [
           "L' U L U R U' R' U'",
           "U' L' U' L U R U R'",
@@ -457,7 +407,6 @@ const cases: AlgSet = {
       {
         name: "Bad Sochi",
         variant: "U",
-        setup: "",
         algs: [
           "U' L' U L U R U' R'",
           "U L' U' L U R U R' U",
@@ -466,7 +415,6 @@ const cases: AlgSet = {
       {
         name: "Bad Sochi",
         variant: "U'",
-        setup: "",
         algs: [
           "U L' U L U R U' R' U",
           "L' U' L U R U R' U'",
@@ -475,7 +423,6 @@ const cases: AlgSet = {
       {
         name: "Super Sledge",
         variant: "solved",
-        setup: "",
         algs: [
           "R U' R2' L R L' U",
           "U' L R' L' R2 U' R'",
@@ -484,7 +431,6 @@ const cases: AlgSet = {
       {
         name: "Super Sledge",
         variant: "U",
-        setup: "",
         algs: [
           "U' R U' R2' L R L' U'",
           "U L R' L' R2 U' R' U",
@@ -493,7 +439,6 @@ const cases: AlgSet = {
       {
         name: "Super Sledge",
         variant: "U'",
-        setup: "",
         algs: [
           "U R U' R2' L R L'",
           "L R' L' R2 U' R' U'",
@@ -502,7 +447,6 @@ const cases: AlgSet = {
       {
         name: "Super Hedge",
         variant: "solved",
-        setup: "",
         algs: [
           "L' U L2 R' L' R U'",
           "U R' L R L2' U' L",
@@ -511,7 +455,6 @@ const cases: AlgSet = {
       {
         name: "Super Hedge",
         variant: "U",
-        setup: "",
         algs: [
           "U' L' U L2 R' L' R",
           "R' L R L2' U' L U",
@@ -520,7 +463,6 @@ const cases: AlgSet = {
       {
         name: "Super Hedge",
         variant: "U'",
-        setup: "",
         algs: [
           "U L' U L2 R' L' R U",
           "U' R' L R L2' U' L U'",
@@ -533,7 +475,6 @@ const cases: AlgSet = {
       cases: [{
         name: "Right Spam",
         variant: "solved",
-        setup: "",
         algs: [
           "R U R' U R' L R L' U",
           "U R U' R' L' U L R U' R'",
@@ -542,7 +483,6 @@ const cases: AlgSet = {
       {
         name: "Right Spam",
         variant: "U",
-        setup: "",
         algs: [
           "U' R U R' U R' L R L' U'",
           "R U' R' L' U L R U' R' U",
@@ -551,7 +491,6 @@ const cases: AlgSet = {
       {
         name: "Right Spam",
         variant: "U'",
-        setup: "",
         algs: [
           "U R U R' U R' L R L'",
           "U' R U' R' L' U L R U' R' U'",
@@ -560,7 +499,6 @@ const cases: AlgSet = {
       {
         name: "Left Spam",
         variant: "solved",
-        setup: "",
         algs: [
           "L' U' L U' L R' L' R U'",
           "U' L' U L R U' R' L' U L",
@@ -569,7 +507,6 @@ const cases: AlgSet = {
       {
         name: "Left Spam",
         variant: "U",
-        setup: "",
         algs: [
           "U' L' U' L U' L R' L' R",
           "U L' U L R U' R' L' U L U",
@@ -578,7 +515,6 @@ const cases: AlgSet = {
       {
         name: "Left Spam",
         variant: "U'",
-        setup: "",
         algs: [
           "U L' U' L U' L R' L' R U",
           "L' U L R U' R' L' U L U'",
@@ -591,7 +527,6 @@ const cases: AlgSet = {
       cases: [{
         name: "Bad Sexy",
         variant: "solved",
-        setup: "",
         algs: [
           "L' U' L U' R U' R'",
         ],
@@ -599,7 +534,6 @@ const cases: AlgSet = {
       {
         name: "Bad Sexy",
         variant: "U",
-        setup: "",
         algs: [
           "U' L' U' L U' R U' R' U",
         ],
@@ -607,7 +541,6 @@ const cases: AlgSet = {
       {
         name: "Bad Sexy",
         variant: "U'",
-        setup: "",
         algs: [
           "U L' U' L U' R U' R' U'",
         ],
@@ -615,7 +548,6 @@ const cases: AlgSet = {
       {
         name: "Bad Ugly",
         variant: "solved",
-        setup: "",
         algs: [
           "R U R' U L' U L",
         ],
@@ -623,7 +555,6 @@ const cases: AlgSet = {
       {
         name: "Bad Ugly",
         variant: "U",
-        setup: "",
         algs: [
           "U' R U R' U L' U L U",
         ],
@@ -631,7 +562,6 @@ const cases: AlgSet = {
       {
         name: "Bad Ugly",
         variant: "U'",
-        setup: "",
         algs: [
           "U R U R' U L' U L U'",
         ],
@@ -639,7 +569,6 @@ const cases: AlgSet = {
       {
         name: "Bad Righty",
         variant: "solved",
-        setup: "",
         algs: [
           "L' U L U' R U R' U'",
         ],
@@ -647,7 +576,6 @@ const cases: AlgSet = {
       {
         name: "Bad Righty",
         variant: "U",
-        setup: "",
         algs: [
           "U' L' U L U' R U R'",
         ],
@@ -655,7 +583,6 @@ const cases: AlgSet = {
       {
         name: "Bad Righty",
         variant: "U'",
-        setup: "",
         algs: [
           "U L' U L U' R U R' U",
         ],
@@ -663,7 +590,6 @@ const cases: AlgSet = {
       {
         name: "Bad Lefty",
         variant: "solved",
-        setup: "",
         algs: [
           "R U' R' U L' U' L U",
         ],
@@ -671,7 +597,6 @@ const cases: AlgSet = {
       {
         name: "Bad Lefty",
         variant: "U",
-        setup: "",
         algs: [
           "U' R U' R' U L' U' L U'",
         ],
@@ -679,7 +604,6 @@ const cases: AlgSet = {
       {
         name: "Bad Lefty",
         variant: "U'",
-        setup: "",
         algs: [
           "U R U' R' U L' U' L",
         ],
@@ -687,7 +611,6 @@ const cases: AlgSet = {
       {
         name: "Double Sexy",
         variant: "solved",
-        setup: "",
         algs: [
           "R U' R' U' R U R' U",
           "U' R U' R' U R U R'",
@@ -697,7 +620,6 @@ const cases: AlgSet = {
       {
         name: "Double Sexy",
         variant: "U",
-        setup: "",
         algs: [
           "U' R U' R' U' R U R' U'",
           "U R U' R' U R U R' U",
@@ -707,7 +629,6 @@ const cases: AlgSet = {
       {
         name: "Double Sexy",
         variant: "U'",
-        setup: "",
         algs: [
           "U R U' R' U' R U R'",
           "R U' R' U R U R' U'",
@@ -717,7 +638,6 @@ const cases: AlgSet = {
       {
         name: "Double Ugly",
         variant: "solved",
-        setup: "",
         algs: [
           "L' U L U L' U' L U'",
           "U L' U L U' L' U' L",
@@ -727,7 +647,6 @@ const cases: AlgSet = {
       {
         name: "Double Ugly",
         variant: "U",
-        setup: "",
         algs: [
           "U' L' U L U L' U' L",
           "L' U L U' L' U' L U",
@@ -737,7 +656,6 @@ const cases: AlgSet = {
       {
         name: "Double Ugly",
         variant: "U'",
-        setup: "",
         algs: [
           "U L' U L U L' U' L U",
           "U' L' U L U' L' U' L U'",

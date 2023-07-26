@@ -9,11 +9,11 @@ const root = ReactDOM.createRoot(rootElement!);
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '',
     element: <Overview />,
   },
   {
-    path: '/sets/:set',
+    path: 'sets/:set',
     element: <AlgSetPage />,
   }
 ]);

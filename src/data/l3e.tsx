@@ -11,7 +11,6 @@ const cases: AlgSet = {
       cases: [{
         name: "Sledge",
         variant: "solved",
-        setup: "",
         algs: [
           "R' L R L'",
         ],
@@ -19,7 +18,6 @@ const cases: AlgSet = {
       {
         name: "Sledge",
         variant: "F",
-        setup: "",
         algs: [
           "L' U L U'",
         ],
@@ -27,7 +25,6 @@ const cases: AlgSet = {
       {
         name: "Sledge",
         variant: "F'",
-        setup: "",
         algs: [
           "U' R U R'",
         ],
@@ -35,7 +32,6 @@ const cases: AlgSet = {
       {
         name: "Hedge",
         variant: "solved",
-        setup: "",
         algs: [
           "L R' L' R",
         ],
@@ -43,7 +39,6 @@ const cases: AlgSet = {
       {
         name: "Hedge",
         variant: "F",
-        setup: "",
         algs: [
           "U L' U' L",
         ],
@@ -51,7 +46,6 @@ const cases: AlgSet = {
       {
         name: "Hedge",
         variant: "F'",
-        setup: "",
         algs: [
           "R U' R' U",
         ],
@@ -66,7 +60,6 @@ const cases: AlgSet = {
       cases: [{
         name: "CW Cycle",
         variant: "solved",
-        setup: "",
         algs: [
           "L R' L' R2 U' R' U",
         ],
@@ -74,7 +67,6 @@ const cases: AlgSet = {
       {
         name: "CCW Cycle",
         variant: "solved",
-        setup: "",
         algs: [
           "R' L R L2' U L U'",
         ],
@@ -86,7 +78,6 @@ const cases: AlgSet = {
       cases: [{
         name: "2-flip",
         variant: "solved",
-        setup: "",
         algs: [
           "L R' L' R U' R U R'",
         ],
@@ -94,7 +85,6 @@ const cases: AlgSet = {
       {
         name: "2-flip",
         variant: "F",
-        setup: "",
         algs: [
           "L R' L' R L' U L U'",
         ],
@@ -102,7 +92,6 @@ const cases: AlgSet = {
       {
         name: "2-flip",
         variant: "F'",
-        setup: "",
         algs: [
           "U' R U R' L R' L' R",
         ],
