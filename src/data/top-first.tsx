@@ -2,40 +2,37 @@ import { AlgSet } from "./types";
 
 const cases: AlgSet = {
   id: "top-first",
-  name: "TopFirst",
-  description: "...",
+  name: "Top First",
+  mask: "CORNERS:-DDD,CORNERS2:-DDD,EDGES:--III-",
+  description: "The Top-First category focuses initially on solving a 'top' consisting of all the centres and three edges around one centre. These methods utilise strategic placement and orientation of edges to simplify the final step.",
   subsets: [
     {
       id: "oka",
       name: "Oka",
       cases: [
         {
-          name: "Righty - 0",
-          variant: "solved",
+          name: "Righty right",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "R U' R' U",
           ],
         },
         {
-          name: "Righty - 0",
-          variant: "bad",
-          mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
-          algs: [
-            "U L' U' L",
-          ],
-        },
-        {
-          name: "Lefty - 0",
-          variant: "solved",
+          name: "Lefty left",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L' U L U'",
           ],
         },
         {
-          name: "Lefty - 0",
-          variant: "bad",
+          name: "Righty left",
+          mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
+          algs: [
+            "U L' U' L",
+          ],
+        },
+        {
+          name: "Lefty left",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "U' R U R'",
@@ -49,7 +46,6 @@ const cases: AlgSet = {
       cases: [
         {
           name: "0",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L R' L' R L' U L U'",
@@ -57,7 +53,6 @@ const cases: AlgSet = {
         },
         {
           name: "1 - CW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L U' L' R' L R U",
@@ -65,7 +60,6 @@ const cases: AlgSet = {
         },
         {
           name: "1 - CCW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "R' U R L R' L' U'",
@@ -73,7 +67,6 @@ const cases: AlgSet = {
         },
         {
           name: "2 - CW,CW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L U' R U",
@@ -81,7 +74,6 @@ const cases: AlgSet = {
         },
         {
           name: "2 - CCW,CCW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "R' U L' U'",
@@ -89,7 +81,6 @@ const cases: AlgSet = {
         },
         {
           name: "2 - CW,CCW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "R L R' U' R' U",
@@ -98,7 +89,6 @@ const cases: AlgSet = {
         },
         {
           name: "2 - CCW,CW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L' U' L' R L U",
@@ -107,7 +97,6 @@ const cases: AlgSet = {
         },
         {
           name: "3 - CCW,CCW,CCW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "R' U' B' U' L' U'",
@@ -115,7 +104,6 @@ const cases: AlgSet = {
         },
         {
           name: "3 - CW,CW,CW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L U B U R U",
@@ -123,7 +111,6 @@ const cases: AlgSet = {
         },
         {
           name: "3 - CW,CW,CCW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L U B' U R U",
@@ -131,7 +118,6 @@ const cases: AlgSet = {
         },
         {
           name: "3 - CCW,CCW,CW",
-          variant: "solved",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "R' U' B U' L' U'",

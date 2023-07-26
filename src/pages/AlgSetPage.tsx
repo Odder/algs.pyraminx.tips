@@ -23,17 +23,12 @@ import Filters from '../components/filters';
 import { Divider } from '@mui/material';
 import App from './App';
 import { useParams } from 'react-router-dom';
+import algSetMap from '../data/AlgSets';
 
 export default function AlgSetPage() {
   const { pyraSet, filters } = useContext(GlobalContext);
 
-  let { set: page }: any = useParams();
-
-  const sets = {
-    'l4e': L4E,
-    'l3e': L3E,
-    'top-first': TOP_FIRST,
-  } as { [key: string]: AlgSet };
+  let { set: page } = useParams() as { set: string };
 
   return (
     <App>
@@ -54,7 +49,7 @@ export default function AlgSetPage() {
           <Box sx={{ overflow: 'auto' }}>
             <List>
               <ListSubheader>Subsets</ListSubheader>
-              {sets[page].subsets?.map((subset: any, index: any) => (
+              {algSetMap[page].subsets?.map((subset: any, index: any) => (
                 <ListItem key={index} disablePadding>
                   <ListItemButton component="a" href={`/sets/${page}#subset-${subset.id}`}>
                     <ListItemText primary={subset.name} />
@@ -78,14 +73,14 @@ export default function AlgSetPage() {
               color="text.primary"
               gutterBottom
             >
-              {page.toUpperCase()}
+              {algSetMap[page]?.name}
             </Typography>
             <Typography variant="body1" align="center" color="text.secondary" paragraph>
               {pyraSet.description}
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptates vel enim, aut dolor sint saepe qui eius ducimus iure provident asperiores dignissimos aspernatur illum laborum rerum dolores molestiae repellendus!
             </Typography>
           </Container>
-          {sets[page]?.subsets?.map((subset: any, i) => (
+          {algSetMap[page]?.subsets?.map((subset: any, i) => (
             <Container id={`subset-${subset.id}`} sx={{ py: 8 }} maxWidth="md" key={i}>
               <Typography
                 component="h3"
@@ -97,7 +92,7 @@ export default function AlgSetPage() {
                 {subset.name}
               </Typography>
               <Grid container spacing={4}>
-                {subset.cases?.filter((pyraCase: Case) => filters.includes('variants') || pyraCase.variant == 'solved').map((pyraCase: Case) => (
+                {subset.cases?.map((pyraCase: Case) => (
                   <Grid item xs={12} sm={6} md={4} key={pyraCase.name + pyraCase.variant}>
                     <CaseCard case={pyraCase}></CaseCard>
                   </Grid>

@@ -11,13 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import { Link } from 'react-router-dom';
-
-const pages = [
-  { name: 'L4E', id: 'l4e' },
-  { name: 'L3E', id: 'l3e' },
-  { name: 'Top First', id: 'top-first' },
-]
+import { algSets } from '../data/AlgSets';
 
 export default function Navigation() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -80,7 +74,7 @@ export default function Navigation() {
               display: { xs: 'block', md: 'none' },
             }}
           >
-            {pages.map((page) => (
+            {algSets.map((page) => (
               <MenuItem key={page.id} onClick={() => handleCloseNavMenu(page.id)} selected={true}
                 href={`/sets/${page.id}`}>
                 <Typography textAlign="center">{page.name}</Typography>
@@ -90,7 +84,7 @@ export default function Navigation() {
         </Box>
         <Container maxWidth="md">
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {algSets.map((page) => (
               <Button
                 href={`/sets/${page.id}`}
                 key={page.id}

@@ -7,13 +7,9 @@ import Navigation from '../components/Navigation';
 import './App.css';
 import App from './App';
 import SetCard from '../components/SetCard';
+import { algSets } from '../data/AlgSets';
 
 export default function OverviewPage() {
-  const sets = [
-    { name: 'L4E', id: 'l4e' },
-    { name: 'L3E', id: 'l3e' },
-    { name: 'Top First', id: 'top-first' },
-  ]
 
   return (
     <App>
@@ -28,10 +24,9 @@ export default function OverviewPage() {
               color="text.primary"
               gutterBottom
             >
-              Sets
             </Typography>
             <Grid container spacing={4}>
-              {sets?.map((set: any, i) => (
+              {algSets?.map((set: any, i) => (
                 <Grid item xs={12} sm={6} md={4} key={set}>
                   <SetCard set={set} />
                 </Grid>

@@ -16,7 +16,17 @@ export default function SetCard({ set }: { set: any }) {
         align='center'
       />
       <CardContent sx={{ flexGrow: 1 }}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati a odit quibusdam ipsam quaerat ducimus aliquid, necessitatibus corrupti expedita at ratione? Nulla possimus fugit illum asperiores omnis tempora veniam eveniet!
+        <twisty-player
+          puzzle="pyraminx"
+          experimental-stickering-mask-orbits={set.mask ?? "CORNERS:----,CORNERS2:----,EDGES:------"}
+          alg=""
+          hint-facelets="floating"
+          experimental-setup-anchor="end"
+          control-panel="none"
+          background="none"
+          camera-latitude-limit="90"
+          camera-latitude="80"> </twisty-player>
+        {set.description}
       </CardContent>
       <CardActions>
         <Link to={`/sets/${set.id}`}>
