@@ -1,15 +1,11 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import CaseCard from '../components/CaseCard';
-import { AlgSet, Case } from '../data/types';
-import L4E from '../data/l4e';
-import L3E from '../data/l3e';
-import TOP_FIRST from '../data/top-first';
+import { Case } from '../data/types';
 import Navigation from '../components/Navigation';
 import Drawer from '@mui/material/Drawer';
 import ListItem from '@mui/material/ListItem';
@@ -18,7 +14,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import './App.css';
 import ListSubheader from '@mui/material/ListSubheader';
-import { GlobalContext } from '../contexts/globalContext';
 import Filters from '../components/filters';
 import { Divider } from '@mui/material';
 import App from './App';
@@ -26,8 +21,6 @@ import { useParams } from 'react-router-dom';
 import algSetMap from '../data/AlgSets';
 
 export default function AlgSetPage() {
-  const { pyraSet, filters } = useContext(GlobalContext);
-
   let { set: page } = useParams() as { set: string };
 
   return (

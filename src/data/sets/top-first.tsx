@@ -1,4 +1,4 @@
-import { AlgSet } from "./types";
+import { AlgSet } from "../types";
 
 const cases: AlgSet = {
   id: "top-first",
