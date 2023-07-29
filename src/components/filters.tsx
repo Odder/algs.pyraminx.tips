@@ -11,6 +11,39 @@ import List from '@mui/material/List';
 export default function Filters() {
   const { filters, setFilters } = useContext(GlobalContext);
 
+  const supportedFilters = [
+    {
+      title: 'Alg display',
+      filters: [
+        {
+          title: 'Show move count',
+          value: 'movecount'
+        },
+        {
+          title: 'Ignore AUF',
+          value: 'ignore-auf'
+        },
+      ],
+    },
+    {
+      title: 'Alg Manipulation',
+      filters: [
+        {
+          title: 'Use S/H',
+          value: 'hedge-sledge'
+        },
+        {
+          title: 'Use triggers',
+          value: 'triggers'
+        },
+        {
+          title: 'Use PyNotation',
+          value: 'pynotation'
+        },
+      ]
+    }
+  ];
+
   const handleToggle = (value: string) => () => {
     const currentIndex = filters.indexOf(value);
     const newChecked = [...filters];
@@ -40,46 +73,26 @@ export default function Filters() {
           />
         </ListItemButton>
       </ListItem> */}
-      <ListSubheader>Alg display</ListSubheader>
-      <ListItem disablePadding>
-        <ListItemButton>
-          <ListItemText id="switch-list-label-variants" primary="Show move count" />
-          <Switch
-            edge="end"
-            onChange={handleToggle('movecount')}
-            checked={filters.indexOf('movecount') !== -1}
-            inputProps={{
-              'aria-labelledby': 'switch-list-label-movecount',
-            }}
-          />
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
-          <ListItemText id="switch-list-label-variants" primary="Use S/H" />
-          <Switch
-            edge="end"
-            onChange={handleToggle('hedge-sledge')}
-            checked={filters.indexOf('hedge-sledge') !== -1}
-            inputProps={{
-              'aria-labelledby': 'switch-list-label-hedge-sledge',
-            }}
-          />
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
-          <ListItemText id="switch-list-label-variants" primary="Use triggers" />
-          <Switch
-            edge="end"
-            onChange={handleToggle('triggers')}
-            checked={filters.indexOf('triggers') !== -1}
-            inputProps={{
-              'aria-labelledby': 'switch-list-label-triggers',
-            }}
-          />
-        </ListItemButton>
-      </ListItem>
+      {supportedFilters.map((filterGroup, index) => (
+        <React.Fragment key={index}>
+          <ListSubheader>{filterGroup.title}</ListSubheader>
+          {filterGroup.filters.map((filter, index) => (
+            <ListItem disablePadding key={index}>
+              <ListItemButton>
+                <ListItemText id="switch-list-label-variants" primary={filter.title} />
+                <Switch
+                  edge="end"
+                  onChange={handleToggle(filter.value)}
+                  checked={filters.indexOf(filter.value) !== -1}
+                  inputProps={{
+                    'aria-labelledby': 'switch-list-label-variants',
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </React.Fragment>
+      ))}
     </List>
 
   );

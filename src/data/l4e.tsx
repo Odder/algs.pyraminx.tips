@@ -265,6 +265,18 @@ const cases: AlgSet = {
             "U' L' U L R U' R' L' U L",
           ],
         },
+        {
+          name: "Bad Sledge",
+          algs: [
+            "L R' L' R U' R U' R'",
+          ],
+        },
+        {
+          name: "Bad Hedge",
+          algs: [
+            "R' L R L' U L' U L",
+          ],
+        },
       ],
     },
     {
