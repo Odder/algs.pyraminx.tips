@@ -31,13 +31,13 @@ const cases: AlgSet = {
         {
           name: "CW Cycle",
           algs: [
-            "L R' L' R2 U' R' U",
+            "L R' L' R R U' R' U",
           ],
         },
         {
           name: "CCW Cycle",
           algs: [
-            "R' L R L2' U L U'",
+            "R' L R L' L' U L U'",
           ],
         },
       ],

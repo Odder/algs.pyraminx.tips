@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import React from "react";
 import { AlgSet } from "../data/types";
 
@@ -29,6 +29,17 @@ export default ({ children }: { children: any }) => {
   const [filters, setFilters] = useState([] as string[]);
   const [page, setPage] = useState('L4E' as string);
   const [pyraSet, setSet] = useState({} as AlgSet);
+
+  useEffect(() => {
+    const storedFilters = localStorage.getItem('filters');
+    if (storedFilters) {
+      setFilters(JSON.parse(storedFilters));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('filters', JSON.stringify(filters));
+  }, [filters]);
 
   const state = {
     algs: {

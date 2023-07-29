@@ -69,15 +69,26 @@ export default function Alg({ alg }: { alg: string }) {
     let newAlg = alg as Algorithm;
     let countOffset = 0;
 
+    // Ignore AUF
     if (ignoreAUF) {
-      newAlg = alg.replace(/^(U['2]?)/m, '($1)').replace(/U['2]?$/, '') as Algorithm;
+      newAlg = newAlg.replace(/^(U['2]?)/m, '($1)').replace(/U['2]?$/, '') as Algorithm;
       countOffset += (alg.match(/(^U|U['2]?$)/g)?.length ?? 0);
     }
 
+    // Replace with shortnames
     shortnames.map((shortname: string) => {
       newAlg = replaces[shortname](newAlg);
     });
 
+    // Use double moves
+    const doubleMoveRegex = /(([RLBU])([']?))\s\1/g;
+    countOffset += (newAlg.match(doubleMoveRegex)?.length ?? 0);
+    newAlg = newAlg.replace(doubleMoveRegex, '$22$3') as Algorithm;
+
+    // Don't count rotations
+    countOffset += (newAlg.match(/([y])[']?/g)?.length ?? 0);
+
+    // Count moves
     if (moveCount) {
       const count = alg.split(' ').length - countOffset;
       newAlg += ` (${count})`;

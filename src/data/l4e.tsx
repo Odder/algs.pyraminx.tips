@@ -25,21 +25,21 @@ const cases: AlgSet = {
         {
           name: "CW Cycle",
           algs: [
-            "L R' L' R2 U' R' U",
+            "L R' L' R R U' R' U",
           ],
           variants: [
             {
               name: "U",
               algs: [
                 "U R U' R' L R' L' R",
-                "U' L R' L' R2 U' R' U'",
+                "U' L R' L' R R U' R' U'",
               ],
             },
             {
               name: "U'",
               algs: [
                 "R U' R' L R' L' R U",
-                "U L R' L' R2 U' R'",
+                "U L R' L' R R U' R'",
               ],
             },
           ],
@@ -47,21 +47,21 @@ const cases: AlgSet = {
         {
           name: "CCW Cycle",
           algs: [
-            "R' L R L2' U L U'",
+            "R' L R L' L' U L U'",
           ],
           variants: [
             {
               name: "U",
               algs: [
                 "L' U L R' L R L' U'",
-                "U' R' L R L2' U L",
+                "U' R' L R L' L' U L",
               ],
             },
             {
               name: "U'",
               algs: [
                 "U' L' U L R' L R L'",
-                "U R' L R L2' U L U",
+                "U R' L R L' L' U L U",
               ],
             },
           ],
@@ -234,15 +234,15 @@ const cases: AlgSet = {
         {
           name: "Super Sledge",
           algs: [
-            "R U' R2' L R L' U",
-            "U' L R' L' R2 U' R'",
+            "R U' R' R' L R L' U",
+            "U' L R' L' R R U' R'",
           ],
         },
         {
           name: "Super Hedge",
           algs: [
-            "L' U L2 R' L' R U'",
-            "U R' L R L2' U' L",
+            "L' U L L R' L' R U'",
+            "U R' L R L' L' U' L",
           ],
         },
       ],
