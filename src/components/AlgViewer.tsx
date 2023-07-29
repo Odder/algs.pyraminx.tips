@@ -37,7 +37,7 @@ export default function AlgViewer({ case: pyraCase }: { case: Case }) {
   }, [player]);
 
   useEffect(() => {
-    setPlayer(new TwistyPlayer({
+    const player = new TwistyPlayer({
       puzzle: "pyraminx",
       experimentalStickeringMaskOrbits: pyraCase.mask ?? "CORNERS:----,CORNERS2:----,EDGES:------",
       alg: pyraCase.algs[0],
@@ -47,7 +47,22 @@ export default function AlgViewer({ case: pyraCase }: { case: Case }) {
       background: "none",
       cameraLatitudeLimit: 90,
       cameraLatitude: 80
-    }));
+    });
+
+    let callback: any;
+    player.experimentalModel.coarseTimelineInfo.addFreshListener(async (info) => {
+      if (info.atEnd && !info.atStart && info.playing === false) {
+        if (callback) {
+          clearTimeout(callback);
+        }
+        callback = () => {
+          player.timestamp = 0;
+        }
+        setTimeout(callback, 700);
+      }
+    });
+
+    setPlayer(player);
   }, []);
 
 

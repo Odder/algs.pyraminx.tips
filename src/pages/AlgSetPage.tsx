@@ -75,9 +75,18 @@ export default function AlgSetPage() {
             >
               {algSetMap[page]?.name}
             </Typography>
+            <twisty-player
+              puzzle="pyraminx"
+              experimental-stickering-mask-orbits={algSetMap[page]?.mask ?? "CORNERS:----,CORNERS2:----,EDGES:------"}
+              alg=""
+              hint-facelets="floating"
+              experimental-setup-anchor="end"
+              control-panel="none"
+              background="none"
+              camera-latitude-limit="90"
+              camera-latitude="80"> </twisty-player>
             <Typography variant="body1" align="center" color="text.secondary" paragraph>
-              {pyraSet.description}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptates vel enim, aut dolor sint saepe qui eius ducimus iure provident asperiores dignissimos aspernatur illum laborum rerum dolores molestiae repellendus!
+              {algSetMap[page]?.description}
             </Typography>
           </Container>
           {algSetMap[page]?.subsets?.map((subset: any, i) => (
