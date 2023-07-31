@@ -89,7 +89,7 @@ export default function Alg({ alg }: { alg: string }) {
     countOffset += (newAlg.match(/([y])[']?/g)?.length ?? 0);
 
     // Count moves
-    if (moveCount) {
+    if (moveCount && alg) {
       const count = alg.split(' ').length - countOffset;
       newAlg += ` (${count})`;
     }
