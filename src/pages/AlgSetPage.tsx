@@ -14,7 +14,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import './App.css';
 import ListSubheader from '@mui/material/ListSubheader';
-import Filters from '../components/filters';
+import Filters from '../components/Filters';
 import { Divider } from '@mui/material';
 import App from './App';
 import { useParams } from 'react-router-dom';

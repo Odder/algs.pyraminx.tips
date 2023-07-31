@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './AlgViewer.css'
 import { useContext, useEffect } from 'react'
-import { GlobalContext } from '../contexts/globalContext'
+import { GlobalContext } from '../contexts/GlobalContent'
 
 type Algorithm = string;
 

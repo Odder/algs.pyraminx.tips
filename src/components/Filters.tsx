@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Switch from '@mui/material/Switch';
-import { GlobalContext } from '../contexts/globalContext';
+import { GlobalContext } from '../contexts/GlobalContent';
 import List from '@mui/material/List';
 
 export default function Filters() {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import './App.css';
-import GlobalProvider from '../contexts/globalContext';
+import GlobalProvider from '../contexts/GlobalContent';
 import { CssBaseline, createTheme, useMediaQuery } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 

@@ -17,5 +17,6 @@ export type Case = {
   variants?: Case[];
   variant?: string;
   mask?: string;
+  avoid?: boolean;
   algs: string[];
 }
