@@ -27,7 +27,7 @@ export default function OverviewPage() {
             </Typography>
             <Grid container spacing={4}>
               {algSets?.map((set: any, i) => (
-                <Grid item xs={12} sm={6} md={4} key={set}>
+                <Grid item xs={12} sm={6} md={4} key={set.id}>
                   <SetCard set={set} />
                 </Grid>
               ))}
