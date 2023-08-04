@@ -104,6 +104,7 @@ const cases: AlgSet = {
           avoid: true,
           algs: [
             "L R' L' R L' U L U'",
+            "U' L' U' L U' R U R' U'"
           ],
         },
         {
@@ -303,12 +304,14 @@ const cases: AlgSet = {
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L R' L R L' R",
+            "y' B U L' R L y U'",
           ],
         },
         {
           name: "2 - CCW,CCW",
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
+            "y B' U' R L' R' y' U",
             "R' L R' L' R L'",
           ],
         },
@@ -319,6 +322,8 @@ const cases: AlgSet = {
           algs: [
             "R L R L R' L' R",
             "L' R' L' R' L R L'",
+            "y L' U' R U' B U R' y' U",
+            "y' R U L' U B' U' L y U'",
           ],
         },
         {
@@ -326,6 +331,8 @@ const cases: AlgSet = {
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           avoid: true,
           algs: [
+            "y R U' B' U R' U L y' U'",
+            "y' L' U B U' L U' R' y U",
             "R' L R L' R' L' R R",
             "L R' L' R L R L' L'",
           ],
@@ -360,6 +367,7 @@ const cases: AlgSet = {
           mask: "CORNERS:----,CORNERS2:----,EDGES:--III-",
           algs: [
             "L' U B U R' U",
+            "R' L' U' R B R' U"
           ],
         },
       ],
